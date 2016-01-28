@@ -21,11 +21,13 @@ $(document).ready(function() {
     var wordBank = $("body").data("wordBank");
     var randomWord = randomWordGenerator(wordBank);
     for (var i = 0; i < randomWord.length; i++) {
-      $("#spacesRow").append('<div class="col-sm-' + getColumnWidths(randomWord) + ' letterSpaces" id="letterSpaces' + i + '"></div>');
+      // $("#spacesRow").append('<div class="container">');
+      $("#spacesRow").append('<div class="col-sm-' + getColumnWidths(randomWord) + ' letterSpaces"><div class="letterDisplay" id="letterDisplay' + i + '"></div>');
     }
     for (var i = 0; i < randomWord.length; i++) {
-      $("#letterSpaces" + i).text(randomWord[i]);
-
+      $("#letterDisplay" + i).text(randomWord[i]);
+      $(".letterDisplay").hide();
     }
+    event.preventDefault();
   });
 });
